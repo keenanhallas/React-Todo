@@ -4,11 +4,11 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({tasks}) => {
+const TodoList = ({tasks, markComplete}) => {
     return (
         <div className="todoList">
             {tasks.map((task, i) => {
-                return <Todo key={i} task={task}/>
+                return <Todo key={i} task={task} markComplete={markComplete}/>
             })}
         </div>
     );

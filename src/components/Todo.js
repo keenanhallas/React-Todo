@@ -1,10 +1,10 @@
 import React from "react";
 
-const Todo = ({task}) => {
+const Todo = ({task, markComplete}) => {
     return (
-        <div className="todo" style={{border: "1px solid black", margin: "2%", padding: "2%"}}>
+        <div className="todo" style={task.completed ? {border: "1px solid black", margin: "2%", padding: "2%", textDecoration: "line-through"} : {border: "1px solid black", margin: "2%", padding: "2%"}}>
             <h2>{task.name}</h2>
-            <button>Mark complete</button>
+            <button onClick={event => {markComplete(event, task.id)}}>Mark complete</button>
         </div>
     );
 }

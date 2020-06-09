@@ -27,14 +27,29 @@ class App extends React.Component {
         ]
     })
     console.log(this.state);
-}
+  }
+
+  markComplete = (event, taskId) => {
+    event.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if(task.id === taskId) {
+          return {
+            name: task.name,
+            id: task.id,
+            completed: !task.completed
+          }
+        } else return task;
+      })
+    });
+  }
 
   render() {
     return (
       <div>
         <h1>Welcome to your Todo App!</h1>
         <TodoForm addTask={this.addTask}/>
-        <TodoList tasks={this.state.tasks}/>
+        <TodoList tasks={this.state.tasks} markComplete={this.markComplete}/>
       </div>
     );
   }

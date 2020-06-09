@@ -11,14 +11,15 @@ const TodoForm = ({addTask}) => {
         <form onSubmit={event => {
             addTask(event, formState);
         }}>
-            <label htmlFor="newTask">Task name:</label>
+            <label htmlFor="newTask">New task: </label>
             <input
                 id="newTask"
                 name="newTask"
                 value={formState}
                 onChange={handleChange}
             />
-            <button>Add</button>
+            <button>Submit</button>
+            <button>Clear completed</button>
         </form>
     );
 }
